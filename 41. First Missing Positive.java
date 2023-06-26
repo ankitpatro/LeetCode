@@ -44,4 +44,47 @@ class Solution {
     }
     return nums.length + 1;
     }
+
+    /**
+ public int firstMissingPositive(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return 1;
+        } 
+
+        int n = nums.length;
+        boolean hasOne = false;
+
+        //Step 1
+        for(int i = 0; i < n; i++) {
+            if(nums[i] == 1) {
+                hasOne = true;
+            }
+            if(nums[i] <= 0 || nums[i] > n) {
+                nums[i] = 1;
+            }
+        }
+
+        if(!hasOne) {
+            return 1;
+        }
+
+        //Step 2
+        for(int i = 0; i < n; i++) {
+            int index = Math.abs(nums[i]) - 1;
+            if(nums[index] > 0) {
+                nums[index] = -nums[index];
+            }
+        }
+
+        //Step 3
+
+        for(int i = 1; i <= n; i++) {
+            if(nums[i-1] > 0) {
+                return i;
+            }
+        }
+
+        return n + 1;
+    }
+    */
 }
